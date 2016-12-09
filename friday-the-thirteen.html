@@ -7,19 +7,54 @@ SUPER BONUS How many Sundays fell on the first of the month during the twentieth
 <script type="text/javascript">
 	
 	//how many friday thirteens in 2016
-	var jan1 = new Date('January 1, 2016').getTime();
-	var dec31 = new Date('December 31, 2016').getTime();
-	var jan1Date = Math.floor(jan1/1000/60/60/24);
-	var dec31Date = Math.floor(dec31/1000/60/60/24);
-	var counter = 0
-	for(var i = jan1Date; i<dec31Date; i++){
-		var loopDate = new Date(i*1000*60*60*24)
-			if((loopDate.getDate() === 13)&&(loopDate.getDay()===5)){
-				counter++;
-			}
-		}
-	// console.log(counter) //1
+	// var jan1 = new Date('January 1, 1962').getTime();
+	// var dec31 = new Date('December 31, 1962').getTime();
+	// var jan1Date = Math.floor(jan1/1000/60/60/24);
+	// var dec31Date = Math.floor(dec31/1000/60/60/24);
+	// var counter = 0
+	// for(var i = jan1Date; i<dec31Date; i++){
+	// 	var loopDate = new Date(i*1000*60*60*24)
+	// 		if((loopDate.getDate() === 13)&&(loopDate.getDay()===5)){
+	// 			counter++;
+	// 		}
+	// 	}
+	// console.log(counter)
 	
+
+function countFriday13(year){
+	var date = new Date();
+	var counter = 0
+	for(var i = 0; i<12; i++){
+		var targetDate = date.setFullYear(year, i, 13);
+		if(date.getDay()===5){counter++
+		}
+	}
+	console.log(counter)
+}
+
+
+
+
+
+
+function howManySunday1st(startYear, endYear){
+	var date = new Date();
+	var counter = 0
+	for(var i = startYear; i <= endYear; i++){
+		for(var j = 0; j<12; j++){
+			var targetDate = date.setFullYear(i, j, 1)
+			if(date.getDay()===0){counter++
+			
+		}
+	}
+	console.log(counter)
+}
+
+
+countFriday13(2016)
+howManySunday1st(1995, 2016)
+
+
 
 	//how many sundays fell on first of the month
 	var jan1901 = new Date('January 1, 1901').getTime();
