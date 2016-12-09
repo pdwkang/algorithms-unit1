@@ -1,0 +1,101 @@
+<!-- JS exercises
+dateObject #math
+## Friday-the-Thirteens
+Given a year as a number (ex: 2016), print the number of Friday-the-thirteens in that year. Read about how to construct dates closely to get ideas on how to implement this: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date> #date #loop #medium #math
+SUPER BONUS How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+ -->
+<script type="text/javascript">
+	
+	//how many friday thirteens in 2016
+	var jan1 = new Date('January 1, 2016').getTime();
+	var dec31 = new Date('December 31, 2016').getTime();
+	var jan1Date = Math.floor(jan1/1000/60/60/24);
+	var dec31Date = Math.floor(dec31/1000/60/60/24);
+	var counter = 0
+	for(var i = jan1Date; i<dec31Date; i++){
+		var loopDate = new Date(i*1000*60*60*24)
+			if((loopDate.getDate() === 13)&&(loopDate.getDay()===5)){
+				counter++;
+			}
+		}
+	// console.log(counter) //1
+	
+
+	//how many sundays fell on first of the month
+	var jan1901 = new Date('January 1, 1901').getTime();
+	var dec2000 = new Date('December 31, 2000').getTime();
+	var jan1901Date = Math.floor(jan1901/1000/60/60/24);
+	var dec2000Date = Math.floor(dec2000/1000/60/60/24);
+	var counter2 = 0
+	for(var i = jan1901Date; i<dec2000Date; i++){
+		var loopDate2 = new Date(i*1000*60*60*24)
+			if((loopDate2.getDate() === 1)&&(loopDate2.getDay()===0)){
+				counter2++;
+			}
+		}
+	// console.log(counter2)  //171
+
+
+	var paragraph = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America."
+	var paragraphUpper = paragraph.toUpperCase();
+	var leetParagraph = paragraphUpper
+
+	for(var i=0; i<paragraphUpper.length; i++){
+		if(paragraphUpper[i] === "A"){
+			leetParagraph = leetParagraph.slice(0, i) + "4" + 
+			(leetParagraph.slice(i+1, leetParagraph.length))
+		}
+		if(paragraphUpper[i] === "E"){
+			leetParagraph = leetParagraph.slice(0, i) + "3" + 
+			(leetParagraph.slice(i+1, leetParagraph.length))
+		}
+		if(paragraphUpper[i] === "G"){
+			leetParagraph = leetParagraph.slice(0, i) + "1" + 
+			(leetParagraph.slice(i+1, leetParagraph.length))
+		}
+		if(paragraphUpper[i] === "O"){
+			leetParagraph = leetParagraph.slice(0, i) + "0" + 
+			(leetParagraph.slice(i+1, leetParagraph.length))
+		}
+		if(paragraphUpper[i] === "S"){
+			leetParagraph = leetParagraph.slice(0, i) + "5" + 
+			(leetParagraph.slice(i+1, leetParagraph.length))
+		}
+		if(paragraphUpper[i] === "T"){
+			leetParagraph = leetParagraph.slice(0, i) + "7" + 
+			(leetParagraph.slice(i+1, leetParagraph.length))
+		}			
+	}
+	console.log(leetParagraph)	
+
+
+
+	var word = "ajool"
+	var wordUpper = word.toUpperCase();
+	for(var i=0; i<word.length; i++){
+		if((wordUpper[i] === "O")&&(wordUpper[i+1]==="O")){
+			wordUpper = wordUpper.slice(0, i) + "OOOOO" + 
+			(wordUpper.slice(i+2, wordUpper.length));	break;
+		}
+		if((wordUpper[i] === "E")&&(wordUpper[i+1]==="E")){
+			wordUpper = wordUpper.slice(0, i) + "EEEEE" + 
+			(wordUpper.slice(i+2, wordUpper.length));	break;
+		}
+		if((wordUpper[i] === "A")&&(wordUpper[i+1]==="A")){
+			wordUpper = wordUpper.slice(0, i) + "AAAAA" + 
+			(wordUpper.slice(i+2, wordUpper.length));	break;
+		}
+		if((wordUpper[i] === "U")&&(wordUpper[i+1]==="U")){
+			wordUpper = wordUpper.slice(0, i) + "UUUUU" + 
+			(wordUpper.slice(i+2, wordUpper.length));	break;
+		}
+		if((wordUpper[i] === "I")&&(wordUpper[i+1]==="I")){
+			wordUpper = wordUpper.slice(0, i) + "IIIII" + 
+			(wordUpper.slice(i+2, wordUpper.length));	break;
+		}				
+	}
+	console.log(wordUpper)
+
+
+	
+</script>
