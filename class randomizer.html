@@ -1,0 +1,64 @@
+<script type="text/javascript">
+
+/*
+ *This is a sorting function that randomly assigns partners. It takes two params
+ *
+ *@param classList - array, the lsit of people present in the class
+ *@param groups - integer, the number of groups desired.
+ *
+ */
+
+var theClass = ['Mason','Andy','Paul','Connie','Amber','Sarah','Casey','Michael','Rishi','Liz','Anna','Ryan','Kyle','Daniel','Drew','Sean'];
+
+
+function assignPartners(classList, groups){
+	var classGroups = [];
+	for(var i = 0; i < 1000; i++){
+		//find a randomly generated index, and swap the students at those indexes.
+		var student1 = Math.floor(Math.random() * classList.length);
+		var student2 = Math.floor(Math.random() * classList.length);
+		//temporarily holds a student as they switch places.
+		var temp;
+		//sthe logic that allows the students to swap places without overiding their information
+		temp = classList[student1];
+		classList[student1] = classList[student2];
+		classList[student2] = temp;
+	}
+
+	//this determines the length of each group, and prevents us from having a decimal value.
+	var peopleInEachGroup = Math.ceil(classList.length / groups);
+
+	//now we are going to build each group
+	for(var i = 0; i < groups; i++){
+		//store these values inside another array, this will create a new array with each execution of the loop.
+		var group = [];
+		/*assigning the appropriate amount of people inside each array. Using .pop() method to get the last element of the array. 
+		 *Can also use .shift() if you want the first element. These will return the value from the classList array we sent.
+		 */
+		for(var j = 0; j < peopleInEachGroup; j++){
+			group.push(classList.pop());
+		}
+		//Now we assign the array "group" to an index in classGroups
+		classGroups[i] = group;
+	}
+
+	/*
+	 * This is purely for visual purposes. 
+	 * We use the .map() method to execute a console.log function on each array inside our classGroups array.
+	 * 
+	 * Will reveal outlier groups and can adjust accordingly.
+	 */
+	var theList = classGroups.map(function(value){
+		console.log(value)
+	})
+	//Also for visual purposes, tells you how many people are desired in each group.
+	console.log(peopleInEachGroup);
+
+}
+
+assignPartners(theClass, 8);
+
+
+
+
+</script>

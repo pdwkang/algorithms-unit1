@@ -22,37 +22,38 @@ SUPER BONUS How many Sundays fell on the first of the month during the twentieth
 	
 
 function countFriday13(year){
-	var date = new Date();
+	var date = new Date(); 
 	var counter = 0
 	for(var i = 0; i<12; i++){
-		var targetDate = date.setFullYear(year, i, 13);
+		date.setFullYear(year, i+1, 13);
 		if(date.getDay()===5){counter++
 		}
 	}
 	console.log(counter)
 }
 
-
+countFriday13(2015)
 
 
 
 
 function howManySunday1st(startYear, endYear){
 	var date = new Date();
-	var counter = 0
+	var counter1 = 0
 	for(var i = startYear; i <= endYear; i++){
 		for(var j = 0; j<12; j++){
-			var targetDate = date.setFullYear(i, j, 1)
-			if(date.getDay()===0){counter++
-			
+			date.setFullYear(i, j, 1);
+			if(date.getDay()===0){counter1++
+			}
 		}
 	}
-	console.log(counter)
+	console.log(counter1)
 }
 
 
+
 countFriday13(2016)
-howManySunday1st(1995, 2016)
+howManySunday1st(2016, 2016)
 
 
 
@@ -64,11 +65,35 @@ howManySunday1st(1995, 2016)
 	var counter2 = 0
 	for(var i = jan1901Date; i<dec2000Date; i++){
 		var loopDate2 = new Date(i*1000*60*60*24)
-			if((loopDate2.getDate() === 1)&&(loopDate2.getDay()===0)){
-				counter2++;
+		if((loopDate2.getDate() === 1)&&(loopDate2.getDay()===0)){
+			counter2++;
+		}
+	}
+	// console.log(counter2)  //171
+	asdfasdfaAqwetqjweltk
+
+
+	var leetLetters = ["A", "E", "G", "O", "S", "T"];
+	var leetNumbers = ["4", "3", "6", "1", "0", "7"];
+	function leetSpeak(string){
+		var myArray = string.split("");   //make string into array
+		for (var i=0; i<string.length; i++){   	//loop thru array
+			var inTheArray = leetLetters.indexOf(myArray[i])  
+			if(inTheArray > -1){
+				myArray[i] = leetNumbers[inTheArray];
 			}
 		}
-	// console.log(counter2)  //171
+		var putBackTogether = myArray.join("")
+		console.log(putBackTogether)
+	}
+
+	leetSpeak("string")
+
+
+
+
+
+
 
 
 	var paragraph = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America."
@@ -102,6 +127,8 @@ howManySunday1st(1995, 2016)
 		}			
 	}
 	console.log(leetParagraph)	
+
+
 
 
 

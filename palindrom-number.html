@@ -1,0 +1,19 @@
+<script type="text/javascript">
+function findPali(start, end){
+	var paliArray = [];
+	for(var i = start; i < end; i++){
+		for(var j = start; j<= end; j++){
+			var number = i * j;    
+			var string = number.toString();
+			var stringRev = string.split('').reverse().join('');
+			if(string == stringRev){
+				paliArray.push(number);
+			}
+		}
+	}
+	console.log(Math.max(...paliArray));
+}
+
+findPali(100,999)
+
+</script>
