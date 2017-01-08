@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+var counter = 0
+function quicksort(arr){
+	if(arr.length==0){return [];
+		return counter;}
+
+	// start the left array(left of the wall)
+	var left = [];
+	// right of the wall
+	var right = [];
+	// pick first number as arbitrary pivot element
+	var pivot = arr[0];
+
+	// run thru the array, and test the pivot(1st element) against each element
+	for(let i=1; i<arr.length; i++){
+		counter++
+		if(arr[i] < pivot){
+			left.push(arr[i]);
+		}else{
+			right.push(arr[i]);
+		}
+	}
+	return quicksort(left).concat(pivot, quicksort(right));
+
+}
+
+quicksort([1,6,1,61,462,6,26,26,23,623,623,6,2,3,5])
+
+
+	
+
+
+
+
+
+</script>
+</body>
+</html>
